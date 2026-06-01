@@ -753,7 +753,7 @@ function getOrientation() {
 }
 
 function addNavProps(){
-	if(nav.numPages === undefined) nav.numPages=7;
+	if(nav.numPages === undefined) nav.numPages=151;
 	nav.rtl = $('#slider').attr('data-dir') == 'rtl';
 	if(nav.rtl) $('html').attr('data-dir', 'rtl');
 	nav.init = function() { setTimeout(function(){nav.to(getStartPage());},1); };
@@ -1130,5 +1130,34 @@ $.fn.redraw = function(){
 	});
 };
 
+/* anima saiba mais */
+$.fn.redraw = function(){
+	return $(this).each(function(){
+		var disp = this.style.display;
+		this.style.display = 'none';
+		var redraw = this.offsetHeight;
+		this.style.display = disp;
+	});
+};
 
+document.addEventListener("DOMContentLoaded", function () {
+	const itens = document.querySelectorAll("ul.saiba-itens > li");
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+			entry.target.classList.add("is-visible");
+} else {
+			entry.target.classList.remove("is-visible");
+}
+		});
+	}, {
+		threshold: 0.1
+	});
+
+	itens.forEach((item, index) => {
+		item.style.transitionDelay = `${index * 0.12}s`;
+		observer.observe(item);
+	});
+});
 
