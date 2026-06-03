@@ -44,7 +44,7 @@ var lazyLoad = true;
 var scaleMode = 'best_all';
 var webAppType = '';
 var useTracker = false;
-var shareInfo = {"btns":[],"align":"bottom"};
+var shareInfo = {"btns":[],"align":"left"};
 var maxScaleWidth, maxScaleHeight;
 var webAppEmailSubject = 'Check out this Web App for {deviceName}';
 var webAppEmailBody = 'Add this Web App to Your {deviceName} by visiting: ';
@@ -753,7 +753,7 @@ function getOrientation() {
 }
 
 function addNavProps(){
-	if(nav.numPages === undefined) nav.numPages=151;
+	if(nav.numPages === undefined) nav.numPages=141;
 	nav.rtl = $('#slider').attr('data-dir') == 'rtl';
 	if(nav.rtl) $('html').attr('data-dir', 'rtl');
 	nav.init = function() { setTimeout(function(){nav.to(getStartPage());},1); };
@@ -1129,8 +1129,6 @@ $.fn.redraw = function(){
 		this.style.display = disp;
 	});
 };
-
-/* anima saiba mais */
 $.fn.redraw = function(){
 	return $(this).each(function(){
 		var disp = this.style.display;
@@ -1152,7 +1150,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 		});
 	}, {
-		threshold: 0.1
+		threshold: 0.2
 	});
 
 	itens.forEach((item, index) => {
@@ -1160,4 +1158,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		observer.observe(item);
 	});
 });
+
+
 
