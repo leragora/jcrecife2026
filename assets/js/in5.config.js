@@ -1,4 +1,3 @@
-
 var useBookmark = false;
 var limitWebAppToDevice = (location.search.toLowerCase().indexOf('webapp=0')<0);
 var vertCenterFlipbooks = true;
@@ -1158,6 +1157,5 @@ document.addEventListener("DOMContentLoaded", function () {
 		observer.observe(item);
 	});
 });
-
 
 
